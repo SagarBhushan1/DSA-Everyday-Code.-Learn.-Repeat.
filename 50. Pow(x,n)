@@ -1,0 +1,20 @@
+class Solution {
+    public double myPow(double x, int n) {
+        long binForam = n;   // use long to handle negative range properly
+        if (binForam < 0) {
+            x = 1 / x;
+            binForam = -binForam;
+        }
+
+        double result = 1.0;
+        while (binForam > 0) {
+            if ((binForam % 2) == 1) { // odd exponent
+                result *= x;
+            }
+            x *= x;              // square the base
+            binForam /= 2;       // divide exponent by 2
+        }
+
+        return result;
+    }
+}
